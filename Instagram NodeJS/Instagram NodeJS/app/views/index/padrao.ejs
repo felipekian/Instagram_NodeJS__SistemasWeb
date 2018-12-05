@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<!-- Titulo da pagina -->
+		<title>Login - Instagram NodeJS</title>
+
+		<!-- Icone do titulo da pagina -->
+		<link rel="icon" type="image/jpg" href="images/iconeInstagram.png" />
+
+		<!--Font Google-->
+		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+		
+		<!-- JQuery -->
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<script>
+			
+				//JQuery
+				$(document).ready(function(){	
+					
+					$('#btn-entrar').click(function(){										
+						//pega os valores do formulario
+						
+						//alert("Entrei.");
+
+						let _email 		 = document.getElementById("email").value;
+						let _senha 		 = document.getElementById("senha").value;
+						
+						
+						var formData = new FormData();
+						//adiciona os valores do formulario a um formData
+						formData.append("email", _email);											
+						formData.append("senha", _senha);
+							
+						let xhr = new XMLHttpRequest();
+						
+	
+						xhr.onreadystatechange = function(){
+							if ( xhr.readyState == 4 ){
+								let resposta = xhr.responseText;
+																
+								//informa para o usuário se foi possivel ou não cadastrar
+								if(resposta == 1){
+									//chama a pagina home do usuario
+									//document.getElementById("mensagem").innerHTML = "Login correto!";
+									
+									location.href = "/home";
+									
+								} else if (resposta == 2) {
+
+									document.getElementById("mensagem").innerHTML = "Complete todos os campos.";
+
+								} else {
+									document.getElementById("mensagem").innerHTML = "Login incorreto!";
+								}
+								
+							}
+						}
+
+						
+						
+						//faz o envio do request ao servidor
+						xhr.open("post", "http://localhost:8080/logarUser");
+						xhr.send(formData);				
+	
+					});
+	
+	
+	
+				});
+			
+			</script>
+		
+	</head>
+
+	<body>
+
+		<div class="container home">
+            <div class="row">
+                <div class="col-md-2"></div>
+				
+				<!-- Mostra do celular na tela principal
+				-->
+                <div class="col-md-4">
+                	<img src="images/celulares.png" class="img-responsive img-center"/>
+                </div>
+                
+                <div class="col-md-4 painel-login">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									
+									<!-- Mostra a imagem do instagram
+									<img src="images/logo1.jpg" class="img-responsive img-center" />
+									<br />
+									-->
+
+									<div><h1 class="logoInstagram"> Instagram NodeJS </h1></div>
+									<br>
+									<!-- Formulário para validar o usuário no sistema -->
+									<div>
+										<!-- Campos com require para ser obrigatório -->
+
+										<!-- Campo de email para autenticação -->
+										<div class="form-group">
+											<input required type="email" name="email" id="email" class="form-control" placeholder="E-mail">
+										</div>
+
+										<!-- Campo de senha -->
+										<div class="form-group">
+											<input required type="password" name="senha" id="senha" class="form-control" placeholder="Senha">
+										</div>
+
+										<div id="mensagem" style="color:red; text-align: center;"> </div>
+
+										<!-- botao para logar no instagram -->
+										<div class="form-group">
+											<button class="btn btn-primary btn-login" id="btn-entrar">Entrar</button>
+										</div>
+
+										<!-- link para a tela de cadastro -->
+										<div class="form-group">
+											<a href="/cadastro" class="btn btn-primary btn-login">Cadastre-se</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+
+                <div class="col-md-2"></div>
+            </div>
+		</div>
+		
+		<!-- Rodape para informar que é um site fictício -->
+		<div class="container footer">			
+			<footer >
+				<p>Instagram NodeJS é um trabalho da disciplina Arquitetura de Sistemas Web</p>
+			</footer>				
+		</div>
+	
+	</body>
+</html>

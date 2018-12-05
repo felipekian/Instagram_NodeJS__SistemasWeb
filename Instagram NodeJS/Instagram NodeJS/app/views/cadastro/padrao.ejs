@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		
+		<!-- Titulo da pagina -->
+		<title>Cadastro - Instagram NodeJS</title>
+
+		<!-- Icone do titulo da pagina -->
+		<link rel="icon" type="image/jpg" href="images/iconeInstagram.png" />
+
+		<!--Font Google-->
+		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+		
+		<!-- jquery -->
+		<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+
+		<script>
+			
+			//JQuery
+			$(document).ready(function(){
+
+				// $('#btn-publicar').click(function(){
+
+				// 	// criar um formData
+				// 	var formData = new FormData();
+
+				// 	var arquivo = document.getElementById("arquivo").files[0];
+				// 	var titulo = document.getElementById("titulo").value;
+
+				// 	formData.append("arquivo", arquivo);
+				// 	formData.append("titulo", titulo);
+
+				// 	// criar xmlhttprequest
+				// 	var xhr = new XMLHttpRequest();
+
+				// 	// verificar as mudanças de estado
+				// 	xhr.onreadystatechange = function(){
+				// 		if(xhr.readyState == 4){
+				// 			var resposta = xhr.responseText;
+				// 			document.getElementById('mensagem').innerHTML = resposta;
+
+				// 			window.location.reload();
+				// 		}
+				// 	}
+
+				// 	//fazer o envio do nosso request
+				// 	xhr.open("POST", "http://localhost:8080/api");
+				// 	xhr.send(formData);
+				// });
+
+				$('#btn-cadastrar').click(function(){										
+					//pega os valores do formulario
+					var usuario 		 = document.getElementById("usuario").value;
+					var nomeCompleto 	 = document.getElementById("nomeCompleto").value;
+					var email 		 	 = document.getElementById("email").value;
+					var senha 		 	 = document.getElementById("senha").value;
+									
+					var formData = new FormData();
+					//adiciona os valores do formulario a um formData
+					formData.append("email", email);
+					formData.append("usuario", usuario);
+					formData.append("nomeCompleto", nomeCompleto);					
+					formData.append("senha", senha);
+					
+
+					let xhr = new XMLHttpRequest();
+					
+
+					xhr.onreadystatechange = function(){
+						if ( xhr.readyState == 4 ){
+							let resposta = xhr.responseText;						
+							
+							//informa para o usuário se foi possivel ou não cadastrar
+							if(resposta == 1){
+								document.getElementById("mensagem_positivo").innerHTML = "Cadastro realizado com sucesso.";
+							
+							} else if (resposta == 2) {
+								document.getElementById("mensagem_negativo").innerHTML = "Complete todos os campos.";
+							
+							} else {
+								document.getElementById("mensagem_negativo").innerHTML = "Não foi possível realizar o cadastro.";
+							
+							}
+							
+						}
+					}
+					
+					//faz o envio do request ao servidor
+					xhr.open("post", "http://localhost:8080/cadastrarUsuarios");
+					xhr.send(formData);				
+
+				});
+
+
+
+			});
+		
+		</script>
+
+		
+	</head>
+
+	<body>
+
+		<div class="container home">
+            <div class="row">
+                <div class="col-md-2"></div>
+				
+				<!-- Mostra o iphone na tela principal
+				-->
+                <div class="col-md-4">
+                	<img src="images/icon-formulario.jpg" class="img-responsive img-center img-cadastro"/>
+                </div>
+                
+                <div class="col-md-4 painel-login">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									
+									<!-- Mostra a imagem do instagram
+									<img src="images/logo1.jpg" class="img-responsive img-center" />
+									<br />
+									-->
+
+									<div><h1 class="logoInstagram"> Instagram NodeJS </h1></div>
+									<br>
+									
+									<!-- Formulário para validar o usuário no sistema -->
+									<div>
+										<!-- Campos com require para ser obrigatório -->
+										
+										<!-- pega o nome de usuario -->
+										<div class="form-group">
+											<input  type="text" id="usuario" name="usuario" class="form-control" placeholder="Nome de usuário">
+										</div>
+
+										<!-- pega o nome completo -->
+										<div class="form-group">
+											<input  type="text" id="nomeCompleto" name="nomeCompleto" 								class="form-control" placeholder="Nome completo">
+										</div>
+
+										<!-- pega o email do usuario -->
+										<div class="form-group">
+											<input  type="email" id="email" name="email" class="form-control" placeholder="E-mail">
+										</div>
+
+										<!-- pega a senha do usuario -->
+										<div class="form-group">
+											<input  type="password"  name="senha" id="senha" class="form-control" placeholder="Senha">
+										</div>
+
+										<div id="mensagem_positivo" style="color:green; text-align: center;"> </div>
+										<div id="mensagem_negativo" style="color:red; text-align: center;"> </div>
+										
+										<!-- botão para cadastrar -->
+										<div class="form-group">
+											<button id="btn-cadastrar" class="btn btn-primary btn-login">Cadastrar</button>
+										</div>
+
+										<!-- link para a tela de login -->
+										<div class="form-group">
+											<a href="/" class="btn btn-primary btn-login">Faça login</a>
+										</div>									
+									</div>
+								
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+		
+		<!-- Rodape para informar que é um site fictício -->
+		<div class="container footer">			
+			<footer >
+				<p>Instagram NodeJS é um trabalho da disciplina Arquitetura de Sistemas Web</p>
+			</footer>				
+		</div>
+	</body>
+</html>

@@ -1,0 +1,184 @@
+body{
+	background: #FAFAFA;
+}
+
+.footer{
+	text-align: center;
+	font-family: 'Rubik', sans-serif ;
+	position: absolute;
+	bottom:0;	
+	width:100%;
+	
+}
+
+.legendaPostagem{
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-weight: bolder;
+
+	text-align: left;
+	padding: 1.5% 1.5% 1% 1%;
+	margin-left: 4%;
+
+}
+
+.btn_postagem{
+	font-weight: bold;
+	font-family: 'Rubik', sans-serif;
+}
+
+#Cpesquisa{
+	
+	position: relative;
+	margin-left : 17%; 
+	width: 200px;
+	border-radius: 15px;
+	border-color: black;
+}
+
+.confImagens{
+	
+	max-width:600px;
+    max-height:800px;
+    width: auto;
+    height: auto;
+}
+
+.confImagensFeed{
+	margin: 3% 2%;
+	padding: 3px 3px;
+	max-width:320px;
+    max-height:500px;
+	background-color: silver;
+	width: auto;
+    height: auto;
+    
+}
+
+.logoInstagram{
+	text-align: center;
+	font-family: 'Rubik', sans-serif;
+	font-weight: bolder;
+	
+}
+
+.img-center {
+	margin:0 auto;
+
+	max-width:350px;
+    max-height:600px;
+    width: auto;
+    height: auto;
+}
+
+.img-cadastro{
+	margin-top: 16%;
+}
+
+.btn-primary{
+	background-color: #3897f0;
+	border-color: #3897f0;
+}
+
+.btn-login{
+	width: 100%;
+	font-weight: bold;
+}
+
+.painel-login{
+	padding-top: 60px;
+}
+
+.home{
+	padding-top: 30px;
+}
+
+.navbar-default{
+	background: #fff;
+}
+
+.logo2{
+	padding-left:50px;
+}
+
+.btn-sair{
+	padding-top: 25px;
+	padding-left: 10px; 
+}
+
+.btn-incluir{
+	padding-top: 25px;
+}
+
+
+
+#div_incluir{
+	width:70%;
+	position:absolute;
+	top: 150px;
+    left: 15%;
+	z-index:9900;
+}
+
+#div_incluir panel{
+	background: #FAFAFA;
+}
+
+.publicacao{
+	border:solid 1px #EFEFEF;
+	margin-bottom:50px;
+	text-align: center;
+}
+
+.publicacao .titulo{
+	background-color: #FFF;
+	padding-left:30px;
+	padding-top:15px;
+	padding-bottom:15px;
+	display:block;
+	font-weight: bold;
+	text-align: left;
+}
+
+.publicacao img{
+	border-top:solid 1px #EFEFEF;
+	border-bottom:solid 1px #EFEFEF;
+}
+
+.comentar{
+	text-align: left;
+	padding: 10px 10px;
+	background:#FFF;
+}
+
+.input_comentario{
+	border: none;
+	box-shadow: none;
+	margin-bottom:10px;
+}
+
+.comentarios{
+	text-align: left;
+	padding:10px 50px ;
+	
+	background:#FFF;
+	border-bottom: solid 1px #EFEFEF;
+}
+
+.txt_comentario{
+	display: block;
+	width:100%;
+	font-size: 15px;
+	color: black;
+}
+
+.btn_remover_postagem{
+	text-decoration: none;
+	color: #c2c2c2;
+	border:none;
+}
+
+.container_feed{
+	height: 100px;	
+	border-bottom: 1px solid #c2c2c2;
+}
